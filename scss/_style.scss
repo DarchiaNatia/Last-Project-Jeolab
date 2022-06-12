@@ -1,0 +1,1054 @@
+header {
+    padding: 20px 50px;
+    .headerDiv {
+        .logo-link {
+            @include text-style ($main-font, 32px, normal, 500, 32px, 0px, $logo-color);
+            &:hover {
+                color: $hover-color
+            }
+        }
+        @include display-flex (row, space-between, center);
+        button {
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
+    }
+    .menu-block {
+        display: none;
+        .blade {
+            position: fixed;
+            width: 100%;
+            height: 100vh;
+            top: 0px;
+            bottom: 0px;
+            left: 0px;
+            opacity: 0.6;
+            background-color: #000;
+            z-index: 1;
+        }
+        .menu {
+            padding: 20px;
+            position: fixed;
+            width: 300px;
+            height: 100vh;
+            background-color: #000;
+            z-index: 2;
+            top: 0px;
+            bottom: 0px;
+            left: 0px;
+            display: none;
+            text-align: right;
+            ul {
+                margin-top: 30px;
+                li {
+                    text-align: center;
+                    margin-bottom: 30px;
+                    & > a {
+                        @include text-style ($main-font, $link-size, normal, 300, 20px, 0px, #fff);
+                        @include transition-ease-in-out;
+                        &:hover {
+                            color: $nav-color;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+// end Header Section
+.cover-section {
+    margin-bottom: 80px;
+    .cover-wrapper {
+        position: relative;
+        img {
+            width: 100%;
+            height: 100%;
+            -o-object-fit: cover;
+               object-fit: cover;
+        }
+        .cover-text {
+            h1 {
+                width: 0;
+                overflow: hidden;
+                border-right: 3px solid #fff;
+                white-space: nowrap;
+                -webkit-animation: typewriter 4.5s steps(40, end), blinking-cursor 0.8s infinite;
+                        animation: typewriter 4.5s steps(40, end), blinking-cursor 0.8s infinite;
+                -webkit-animation-iteration-count: infinite;
+                        animation-iteration-count: infinite;       
+            }
+            @-webkit-keyframes typewriter {
+                from {
+                    width: 0
+                    }
+                    to {
+                    width: 100%
+                    }
+            }
+            @keyframes typewriter {
+                from {
+                    width: 0
+                    }
+                    to {
+                    width: 100%
+                    }
+            }
+            @-webkit-keyframes blinking-cursor {
+            from { border-color: transparent }
+            to { border-color: #fff }
+            }
+            @keyframes blinking-cursor {
+            from { border-color: transparent }
+            to { border-color: #fff }
+            }
+            button {
+                @extend .button-basic;
+                border: 2px solid #fff;
+                @include text-style ($main-font, $btn-text-size, normal, bold, 20px, 2px, #fff);
+                @include transition-ease-in-out;
+                    &:hover {
+                        background-color: #fff;
+                        color: black;
+                    }
+            }
+        }
+    }
+    @media (min-width: 850px) {
+        .cover-text {
+            position: absolute;
+            bottom: 80px;
+            right: 80px;
+            h1 {
+                @include text-style ($roboto-bold, 60px, normal, bold, null, 4px, #fff);
+                margin-bottom: 40px;
+            }
+            p {
+                @include text-style ($main-font, 18px, normal, 400, 25px, 0px, #fff);
+                margin-bottom: 40px;
+            }
+        }
+    }
+    @media (max-width: 850px) {
+        .cover-text {
+            position: absolute;
+            bottom: 80px;
+            left: 20px;
+            h1 {
+                @include text-style ($roboto-bold, 54px, normal, bold, null, 4px, #fff);
+                margin-bottom: 30px;
+            }
+            p {
+                @include text-style ($main-font, $paragraph-size, normal, 400, 25px, 0px, #fff);
+                margin-bottom: 30px;
+            }
+        }
+    }
+    @media (max-width: $container-size-medium) {
+        .cover-text {
+            position: absolute;
+            bottom: 10px;
+            left: 20px;
+            h1 {
+                @include text-style ($roboto-bold, 36px, normal, bold, null, 4px, #fff);
+                margin-bottom: 10px;
+            }
+            p {
+                @include text-style ($main-font, $paragraph-size-02, normal, 400, 1.5, 0px, #fff);
+                margin-bottom: 10px; 
+            }
+        }
+    } 
+}
+.home-section {
+    margin-top: 30px;
+    .container {
+        @extend %container;
+        .home-section-text-wrapper {
+            margin-bottom: 50px;
+            h3, p {
+                text-align: center;
+                margin-bottom: 30px;
+            }
+            h3 {
+                @include text-style ($roboto-bold, 50px, normal, 500, 50px, 3px, $heading-color-02);
+            }
+            p {
+                @include text-style ($main-font, $paragraph-size, italic, 400, 22px, 0px, $paragraph-color);
+            }
+            .linkDiv {
+                @include display-flex (row, center, center);
+
+                h4 {
+                    @include text-style ($main-font, 16px, italic, 400, 22px, 0px, $heading-color-02);
+                    margin-right: 10px;
+                }
+                a {
+                    text-decoration: underline;
+                    @include text-style ($main-font, $link-size, normal, 400, 22px, 0px, $black-color);
+                    @include transition-ease-in-out;
+                &:hover {
+                    text-decoration: none;
+                }
+                }
+            }
+        }
+        .home-section-box-wrapper {
+            width: 90%;
+            height: auto;
+            margin: 0px auto;
+            @include display-flex (row, space-around, center); 
+            .box-1, .box-2, .box-3, .box-4 {
+                @include set-box (23%, 250px);
+                text-align: center;
+                background-color: $box-color;
+                .box-head {
+                    svg {
+                        width: 60px;
+                        height: 60px;
+                        fill: $icon-color;
+                        margin-top: 30px;
+                        -webkit-transition: top 5s ease-in-out;
+                        -o-transition: top 5s ease-in-out;
+                        transition: top 5s ease-in-out;
+                    }  
+                }
+                .box-body {
+                    h5 {
+                        margin-top: 20px;
+                        @include text-style ($roboto-light, $heding-5-size, normal, 300, 25px, 4px, $icon-color);
+                    }
+                    p {
+                        margin-top: 20px;
+                        @include text-style ($main-font, $paragraph-size, normal, 400, 20px, 1px, $icon-color);
+                    }     
+                }
+            }
+            .box-1:hover, .box-2:hover, .box-3:hover, .box-4:hover {
+                h2, p {
+                    color: $heading-color-02;
+                }
+                svg {
+                    position: relative;
+                    top: -4px;
+                    fill: $icon-hover; 
+                }
+            }
+            @media (max-width: $container-size-lg){
+                .box-1, .box-2, .box-3, .box-4 {
+                    @include set-box (48%, 250px);
+                    margin-bottom: 15px;
+                }
+            }
+            @media (max-width: $container-size-medium) {
+                .box-1, .box-2, .box-3, .box-4 {
+                    @include set-box (80%, 250px);
+                    margin-bottom: 20px;
+                }
+            }  
+        }
+    }
+}
+// end of Home Section
+.services-section {
+    padding: 50px 0px;
+    .container {
+        @extend %container;
+        .ball-1 {
+            @include set-ball (100px, 100px, $box-color);
+            margin: 100px;
+        }
+        .services-section-wrapper {
+            .services-section-text-wrapper {
+                h2, p {
+                    margin-bottom: 30px;
+                }
+                button {
+                    @extend .button-basic;
+                    background-color: $ball-2-color;
+                    @include text-style ($main-font, $btn-text-size, normal, bold, 20px, 2px, $black-color);
+                    @include transition-ease-in-out;
+                    &:hover {
+                        background-color: $services-section-btn-hover;
+                        color: #fff;
+                    }
+                }
+            }
+        } 
+    }
+    @media (min-width: 1024px) {
+        .services-section-wrapper {
+             @include display-flex (row, space-around, center);
+             .services-section-banner {
+                position: relative;
+                img {
+                    @include set-rounded-image;
+                    opacity: 0.9;
+                }
+                .ball-2 {
+                    @include set-ball (250px, 250px, $ball-2-color);
+                    position: absolute;
+                    bottom: -90px;
+                    right: -50px;
+                }
+            }
+            .services-section-text-wrapper {
+                margin-bottom: 80px;
+                h2 {
+                    @include text-style ($montserrat-font, $heading-2-size, normal, bold, 55px, 2px, $heading-color-01);
+                }
+                p {
+                    @include text-style ($main-font, $paragraph-size, normal, 400, 30px, 0px, $paragraph-color);
+                }
+            }
+        } 
+    }
+    @media (min-width: $container-size-medium) and (max-width: 1024px){
+        .services-section-wrapper {
+            @include display-flex (column, center, center);
+            .services-section-banner {
+               position: relative;
+               img {
+                   @include set-rounded-image (300px, 300px);
+                   opacity: 0.9;
+               }
+               .ball-2 {
+                   @include set-ball (150px, 150px, $ball-2-color);
+                   position: absolute;
+                   bottom: -50px;
+                   right: 0px;
+               }
+           }
+       }
+        .services-section-text-wrapper {
+            margin-bottom: 80px;
+            h2 {
+                @include text-style ($montserrat-font, $heading-4-size, normal, bold, 55px, 1px, $heading-color-01);
+            }
+            p {
+                @include text-style ($main-font, $paragraph-responsive-size, normal, 400, 30px, 0px, $paragraph-color);
+            }
+        }        
+    }
+    @media (max-width: $container-size-medium) {
+        .services-section-banner {
+            position: relative;
+            img {
+                @include set-rounded-image (300px, 300px);
+                opacity: 0.9;
+            }
+            .ball-2 {
+                @include set-ball (120px, 120px, $ball-2-color);
+                position: absolute;
+                bottom: -30px;
+                left: 220px;
+            }
+        }
+        .services-section-text-wrapper {
+            margin-bottom: 80px;
+            h2 {
+                @include text-style ($montserrat-font, $heading-4-size, normal, bold, 55px, 1px, $heading-color-01);
+            }
+            p {
+                @include text-style ($main-font, $paragraph-responsive-size, normal, 400, 30px, 0px, $paragraph-color);
+            }
+        } 
+    }
+}
+.section-3 {
+    margin-top: 100px;
+    padding: 50px;
+    background-color: $section-3-bg;
+    .container {
+        @extend %container;
+        .section-3-wrapper {
+            position: relative;
+            background-color: #fff;
+            width: 80%;
+            min-width: 290px;
+            margin: 0px auto;
+            .text-wrapper {
+                @include display-flex (row, end, center);
+                padding: 50px;
+                .text-div {
+                    h3, p, .section-link {
+                        margin-bottom: 30px;
+                    }
+                    h3 {
+                        @include text-style ($montserrat-font, $heading-3-size, normal, bold, 36px, 3px, $heading-color-01);
+                    }
+                    p, h6 {
+                        @include text-style ($main-font, $paragraph-size, normal, 400, 25px, 0px, $paragraph-color);
+                    }
+                    .section-link {
+                        @include display-flex (row, start, center);
+                        h6 {
+                                margin-right: 10px;
+                        }
+                        a {
+                            text-decoration: underline;
+                            @include text-style ($main-font, $link-size, normal, 400, 22px, 0px, $black-color);
+                            @include transition-ease-in-out;
+                        &:hover {
+                            text-decoration: none;
+                        }
+                        }
+                    }
+                    button {
+                        @extend .button-basic;
+                        border: 2px solid $section-3-btn-hover;
+                        @include text-style ($main-font, $btn-text-size, normal, bold, 20px, 2px, $black-color);
+                        @include transition-ease-in-out;
+                        &:hover {
+                            background-color: $section-3-btn-hover;
+                            color: #fff;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    @media (min-width: 1024px) {
+        height: 750px;
+        .empty-div, .text-div {
+            width: 50%;
+        }
+        .banner-image {
+            position: absolute;
+            .image-div {
+                position: relative;
+                bottom: 300px;
+                right: 100px;
+                img {
+                    @include set-rounded-image;
+                    -webkit-filter: blur(0.7px);
+                            filter: blur(0.7px);
+                }
+                .overlay-div {
+                    @include set-ball (150px, 150px, $ball-3-color); 
+                    position: absolute;
+                    bottom: -15px;
+                    left: 400px;
+                    }
+            }
+        } 
+    }
+    @media (min-width: $container-size-medium) and (max-width: 1024px) {
+        height: 950px;
+        .text-div {
+            width: 100%;
+            button {
+                margin-bottom: 50px;
+            }
+        }
+        .banner-image {
+            position: absolute;
+            .image-div {
+                position: relative;
+                bottom: 52px;
+                right: 80px;
+                img {
+                    @include set-rounded-image (450px, 450px);
+                    -webkit-filter: blur(0.7px);
+                            filter: blur(0.7px);
+                }
+                .overlay-div {
+                    @include set-ball (150px, 150px, $ball-3-color); 
+                    position: absolute;
+                    bottom: -25px;
+                    right: -10px;
+                }
+            }
+        } 
+    }
+    @media (max-width: $container-size-medium) {
+        height: 950px;
+        .text-div {
+            width: 100%;
+            button {
+                margin-bottom: 40px;
+            }
+        }
+        .banner-image {
+            position: absolute;
+            .image-div {
+                position: relative;
+                bottom: 45px;
+                right: 60px;
+                img {
+                    @include set-rounded-image (300px, 300px);
+                    -webkit-filter: blur(0.7px);
+                            filter: blur(0.7px);
+                }
+                .overlay-div {
+                    @include set-ball (100px, 100px, $ball-3-color); 
+                    position: absolute;
+                    bottom: -25px;
+                    right: -10px;
+                }
+            }
+        } 
+    }
+}
+// Start Tours Section
+.tours-section {
+    padding: 50px;
+    background-color: $tours-section-bg;
+    .container {
+        @extend %container;
+        .tours-section-wrapper {
+            .tours-section-text-wrapper {
+                button {
+                    @extend .button-basic;
+                    @include text-style ($main-font, $btn-text-size, normal, bold, 20px, 2px, $black-color);
+                    @include transition-ease-in-out;
+                    background-color: $tours-section-btn;
+                    &:hover {
+                        background-color: $tours-section-btn-hover;
+                        color: #fff;
+                    }
+                }
+            } 
+        }
+        .text-div {
+            margin: 150px auto;
+            text-align: center;
+            h2 {
+                margin-bottom: 30px;
+                @include text-style ($roboto-bold, $heading-2-size, normal, bold, 48px, 1px, $heading-color-01);
+            }
+            h4 {
+                margin-bottom: 20px;
+                @include text-style ($main-font, $heading-4-size, normal, 300, 36px, 0px, $heading-color-03);
+            }
+        }
+        // slider section
+        .slider-container {
+            @include display-flex;
+             .slider-item {
+                width: 33%;
+                padding: 30px;
+                margin:10px;
+                background-color: #fff;
+                .head {
+                    img {
+                        margin: 0px auto;
+                        @include set-slider-image;
+                    }
+                }
+                .body {
+                    h5 {
+                        margin: 20px 0px;
+                        @include text-style ($main-font, $heding-5-size, normal, bold, 20px, 1px, $black-color);
+                    }
+                    p {
+                        @include text-style ($main-font, $paragraph-size, normal, 400, 25px, 0px, $paragraph-color);
+                    }
+                    .sub_div {
+                        @include display-flex;
+                        button {
+                            @extend .button-basic;
+                            @include text-style ($main-font, $btn-text-size, normal, bold, 20px, 2px, $black-color);
+                            @include transition-ease-in-out;
+                            background-color: $tours-section-btn;
+                            &:hover {
+                                background-color: $tours-section-btn-hover;
+                                color: #fff;
+                            }
+                        }
+                    }
+                }
+            }
+            .grow { 
+                -webkit-transition: all .2s ease-in-out; 
+                -o-transition: all .2s ease-in-out; 
+                transition: all .2s ease-in-out; 
+                }
+                
+            .grow:hover { 
+                -webkit-transform: scale(1.05); 
+                    -ms-transform: scale(1.05); 
+                        transform: scale(1.05); 
+            }
+        }
+        .apply-btn-div {
+            text-align: center;
+            margin-top: 80px;
+            .apply-btn {
+                @extend .button-basic;
+                @include text-style ($main-font, $btn-text-size, normal, bold, 20px, 2px, $black-color);
+                @include transition-ease-in-out;
+                background-color: $apply-btn;
+                &:hover {
+                    opacity: 0.7;
+                }
+            }
+        }
+    }
+    @media (min-width: 1024px) {
+        .tours-section-wrapper {
+             @include display-flex (row, space-around, center);
+             position: relative;
+             .tours-section-text-wrapper {
+                position: absolute;
+                left: 60px;
+                bottom: 70px;
+                background-color: #fff;
+                width: 37%;
+                padding: 40px;
+                z-index: 1;
+                h4, p, button {
+                    margin-bottom: 20px;
+                }
+                h4 {
+                    @include text-style ($montserrat-font, $heading-4-size, normal, bold, 36px, 1px, $heading-color-02);
+                }
+                p {
+                    @include text-style ($main-font, $paragraph-size, normal, 400, 25px, 0px, $paragraph-color);
+                    }
+                }
+             .empty-div {
+                 width: 30%;
+                 height: 400px;
+             }
+             .tours-section-banner {
+                position: relative;
+                .main-img {
+                    @include set-rounded-image;
+                    border: solid 20px #fff;
+                    opacity: 0.9;
+                }
+                .overlay-img {
+                    @include set-rounded-image (300px, 300px);
+                    position: absolute;
+                    bottom: -50px;
+                    left: -100px;
+                }
+            }
+        } 
+    }
+    @media (min-width: $container-size-medium) and (max-width: 1024px){
+        .tours-section-wrapper {
+            @include display-flex (column, center, center);
+            position: relative;
+            .tours-section-text-wrapper{
+                position: absolute;
+                left: 60px;
+                top: 10px;
+                background-color: #fff;
+                min-width: 280px;
+                padding: 30px;
+                h4, p, button {
+                    margin-bottom: 20px;
+                }
+                h4 {
+                    @include text-style ($montserrat-font, $heading-4-size, normal, bold, 36px, 0px, $heading-color-02);
+                }
+                p {
+                    @include text-style ($main-font, $paragraph-responsive-size, normal, 400, 20px, 0px, $paragraph-color);
+                }
+                button {
+                    margin-bottom: 40px;
+                }
+            }
+            .empty-div {
+                width: 30%;
+                height: 400px;
+            }
+            .tours-section-banner {
+               position: relative;
+               .main-img {
+                   @include set-rounded-image (350px, 350px);
+                   border: solid 20px #fff;
+                   opacity: 0.9;
+               }
+               .overlay-img {
+                   @include set-rounded-image (150px, 150px);
+                   position: absolute;
+                   bottom: -40px;
+                   left: -30px;
+               }
+           }
+       }       
+    }
+    @media (max-width: $container-size-medium) {
+        .tours-section-wrapper {
+            @include display-flex (column, center, center);
+            position: relative;
+            .tours-section-text-wrapper {
+                position: absolute;
+                left: 10px;
+                top: 10px;
+                background-color: #fff;
+                min-width: 280px;
+                padding: 30px;
+                h4, p, button {
+                    margin-bottom: 20px;
+                }
+                h4 {
+                    @include text-style ($montserrat-font, $heading-4-size, normal, bold, 36px, 0px, $heading-color-02);
+                }
+                p {
+                    @include text-style ($main-font, $paragraph-responsive-size, normal, 400, 20px, 0px, $paragraph-color);
+                }
+                button {
+                    margin-bottom: 40px;
+                }
+            }
+            .empty-div {
+                width: 30%;
+                height: 350px;
+            }
+            .tours-section-banner {
+                position: relative;
+                .main-img {
+                    @include set-rounded-image (300px, 300px);
+                    border: solid 20px #fff;
+                    opacity: 0.9;
+                }
+                .overlay-img {
+                    @include set-rounded-image (120px, 120px);
+                    position: absolute;
+                    bottom: -10px;
+                    left: -10px;
+                }
+            }
+        }
+    }
+}
+// Start About Us Section
+.about-us {
+    padding: 50px;
+    .container {
+        @extend %container;
+        .section-banner-wrapper {
+            .section-text-wrapper {
+                .btn-div {
+                    button {
+                        @extend .button-basic;
+                        @include text-style ($main-font, $btn-text-size, normal, bold, 20px, 2px, $black-color);
+                        @include transition-ease-in-out;
+                        background-color: $ball-2-color;
+                        &:hover {
+                            background-color: $services-section-btn-hover;
+                            color: #fff;
+                        }
+                    }
+                }
+            }
+        }
+        @media (min-width: 1024px) {
+            .section-heading, .section-main-paragraph, h2, p {
+                text-align: right;
+                margin-bottom: 30px;
+            }
+            .section-heading {
+                @include text-style ($roboto-bold, 24px, normal, bold, 24px, 10px, $black-color);
+            }
+            .section-main-paragraph {
+                @include text-style ($main-font, $paragraph-size, normal, 400, 24px, 0px, $paragraph-color);
+            }
+            .section-banner-wrapper {
+                margin-top: 100px;
+                @include display-flex (row, space-around, center);
+                .banner-image {
+                    position: relative;
+                    img {
+                        @include set-rounded-image;
+                    }
+                    .ball-4 {
+                        @include set-ball (180px, 180px, $ball-2-color); 
+                        position: absolute;
+                        left: 20px;
+                        bottom: -50px;
+                    }
+                }
+                .section-text-wrapper {
+                    h2 {
+                        @include text-style ($montserrat-font, $heading-2-size, normal, bold, 55px, 2px, $heading-color-01);
+                    }
+                    p {
+                        @include text-style ($main-font, $paragraph-size, normal, 400, 30px, 0px, $paragraph-color);
+                    }
+                    .btn-div {
+                        text-align: right;
+                    }
+                }
+            }       
+        }
+        @media (min-width: $container-size-medium) and (max-width: 1024px) {
+            .section-heading, .section-main-paragraph, h2, p {
+                text-align: center;
+                margin-bottom: 30px;
+            }
+            .section-heading {
+                @include text-style ($roboto-bold, 20px, normal, bold, 24px, 5px, $black-color);
+            }
+            .section-main-paragraph {
+                @include text-style ($main-font, $paragraph-responsive-size, normal, 400, 24px, 0px, $paragraph-color);
+            }
+            .section-banner-wrapper {
+                @include display-flex (column, center, center);
+                .banner-image {
+                    position: relative;
+                    img {
+                        @include set-rounded-image(450px, 450px);
+                    }
+                    .ball-4 {
+                        @include set-ball (150px, 150px, $ball-2-color); 
+                        position: absolute;
+                        left: 20px;
+                        bottom: -50px;
+                    }
+                }
+                .section-text-wrapper {
+                    margin-top: 100px;
+                    h2, p {
+                        text-align: center;
+                    }
+                    h2 {
+                        @include text-style ($montserrat-font, $heading-4-size, normal, bold, 55px, 0px, $heading-color-01);
+                    }
+                    p {
+                        @include text-style ($main-font, $paragraph-responsive-size, normal, 400, 30px, 0px, $paragraph-color);
+                    }
+                    .btn-div {
+                        text-align: center;
+                    }
+                }
+            }
+        }
+        @media (max-width: $container-size-medium) {
+            .section-heading, .section-main-paragraph, h2, p {
+                text-align: center;
+                margin-bottom: 30px;
+            }
+            .section-heading {
+                @include text-style ($roboto-bold, 20px, normal, bold, 24px, 5px, $black-color);
+            }
+            .section-main-paragraph {
+                @include text-style ($main-font, $paragraph-responsive-size, normal, 400, 24px, 0px, $paragraph-color);
+            }
+            .section-banner-wrapper {
+                @include display-flex (column, center, center);
+                .banner-image {
+                    position: relative;
+                    img {
+                        @include set-rounded-image(300px, 300px);
+                    }
+                    .ball-4 {
+                        @include set-ball (120px, 120px, $ball-2-color); 
+                        position: absolute;
+                        left: 20px;
+                        bottom: -50px;
+                    }
+                }
+                .section-text-wrapper {
+                    margin-top: 100px;
+                    h2, p {
+                        text-align: center;
+                    }
+                    h2 {
+                        @include text-style ($montserrat-font, $heading-4-size, normal, bold, 55px, 0px, $heading-color-01);
+                    }
+                    p {
+                        @include text-style ($main-font, $paragraph-responsive-size, normal, 400, 30px, 0px, $paragraph-color);
+                    }
+                    .btn-div {
+                        text-align: center;
+                    }
+                }
+            }
+        }
+    }
+}
+// Start Contact Us Section
+.contactUs-section {
+    margin-top: 100px;
+    .container {
+        .section-banner-image {
+            background-image: url("../images/s-2.jpg");
+            background-repeat: no-repeat;
+            background-size: cover;
+            padding: 50px;
+            .section-overlay-div {
+                @include display-flex;
+                width: 95%;
+                margin: 0px auto;
+                z-index: 2;
+                .p-div {
+                    display: -webkit-box;
+                    display: -ms-flexbox;
+                    display: flex;
+                    -webkit-box-align: center;
+                        -ms-flex-align: center;
+                            align-items: center;
+                    width: 30%;
+                    height: 604px;
+                    background-color: $section-3-bg;
+                    padding: 20px;
+                    p {
+                        @include text-style ($main-font, $paragraph-size, normal, bold, 30px, 0px, #fff);
+                    }
+                }
+                .form-wrapper {
+                    width: 70%;
+                    background-color: #fff;
+                    padding: 20px;
+                    label, input, select, textarea {
+                        width: 100%;
+                    }
+                    label {
+                        margin-bottom: 10px;
+                        @include text-style ($main-font, $paragraph-size, normal, bold, 30px, 0px, $black-color);
+                    }
+                    input, select, textarea {
+                        padding: 12px;
+                        margin: 10px 0;
+                        border: none;
+                        border-bottom: 2px solid #000;
+                        outline: none;
+                        &:focus {
+                            border: 2px solid $section-3-bg;
+                        }
+                        &::-webkit-input-placeholder {
+                            @include text-style ($main-font, $paragraph-size, normal, 400, 30px, 0px, $placeholder-color);
+                            opacity: 1;
+                        }
+                        &::-moz-placeholder {
+                            @include text-style ($main-font, $paragraph-size, normal, 400, 30px, 0px, $placeholder-color);
+                            opacity: 1;
+                        }
+                        &:-ms-input-placeholder {
+                            @include text-style ($main-font, $paragraph-size, normal, 400, 30px, 0px, $placeholder-color);
+                            opacity: 1;
+                        }
+                        &::-ms-input-placeholder {
+                            @include text-style ($main-font, $paragraph-size, normal, 400, 30px, 0px, $placeholder-color);
+                            opacity: 1;
+                        }
+                        &::placeholder {
+                            @include text-style ($main-font, $paragraph-size, normal, 400, 30px, 0px, $placeholder-color);
+                            opacity: 1;
+                        }
+                    }
+                    textarea {
+                        resize: none;
+                        height: 100px;
+                        &::-webkit-input-placeholder {
+                            @include text-style ($main-font, $paragraph-size, normal, 400, 30px, 0px, $placeholder-color);
+                            opacity: 1;
+                        }
+                        &::-moz-placeholder {
+                            @include text-style ($main-font, $paragraph-size, normal, 400, 30px, 0px, $placeholder-color);
+                            opacity: 1;
+                        }
+                        &:-ms-input-placeholder {
+                            @include text-style ($main-font, $paragraph-size, normal, 400, 30px, 0px, $placeholder-color);
+                            opacity: 1;
+                        }
+                        &::-ms-input-placeholder {
+                            @include text-style ($main-font, $paragraph-size, normal, 400, 30px, 0px, $placeholder-color);
+                            opacity: 1;
+                        }
+                        &::placeholder {
+                            @include text-style ($main-font, $paragraph-size, normal, 400, 30px, 0px, $placeholder-color);
+                            opacity: 1;
+                        }
+                    }
+                    input[type=submit] {
+                        @include text-style ($main-font, $btn-text-size, normal, bold, 20px, 2px, $black-color); 
+                        text-transform: uppercase;                       
+                        background-color: $section-3-bg;
+                        border: none;
+                        padding: 16px 32px;
+                        cursor: pointer;
+                        &:hover {
+                            background-color: $section-3-btn-hover;
+                            color: #fff;
+                        }
+                    }
+                }
+                @media (min-width: $container-size-medium) {
+                    .date-tel-div {
+                        @include display-flex (row, space-between, end);
+                        width: 100%;
+                    }  
+                }
+                @media (max-width: 830px ) {
+                    .date-tel-div {
+                        -webkit-box-orient: vertical;
+                        -webkit-box-direction: normal;
+                            -ms-flex-direction: column;
+                                flex-direction: column;
+                    }
+                    .p-div, .form-wrapper, input, select, textarea, .date-div, .phone-div {
+                        width: 100%;
+                    }
+                    .p-div {
+                        height: auto;
+                    } 
+                }
+                @media (min-width: 830px ) {
+                    .date-tel-div {
+                        .date-div, .phone-div {
+                            width: 48%;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+// Start Footer Section
+footer {
+    background-color: $footer-bg;
+    width: 100%;
+    height: auto;
+    padding: 60px 40px 10px;
+    .container {
+        @extend %container;
+        .logo-div {
+            margin: 0px auto;
+            width: 150px;
+            height: 100px;
+            img {
+                width: 100%;
+                height: 100%;
+            }
+        }
+        .footer-line {
+            margin: 40px auto;
+            width: 95%;
+            height: 2px;
+            background-color: $footer-line-color;
+        }
+        .footer-text-wrapper {
+            h6 {
+                @include text-style ($main-font, $heading-6-size, normal, 400, 20px, 0px, #fff);
+            }
+        }
+        .rights-reserved-div {
+            margin: 70px auto 10px;
+            text-align: center;
+            @include text-style ($main-font, 14px, normal, 400, 30px, 0px, #fff);
+        }
+    }
+    @media (min-width: $container-size-medium) {
+        .footer-text-wrapper {
+            @include display-flex (row, space-around, start);
+        }
+    }
+    @media (max-width: $container-size-medium) {
+        .footer-text-wrapper {
+            @include display-flex (column, center, center);
+            h6 {
+                text-align: center;
+            }
+            & h6:not(:last-child) {
+                margin-bottom: 20px;
+            } 
+        }
+    }
+}
